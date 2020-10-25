@@ -9,18 +9,12 @@ app.get('/', function(req, res) {
         <a href="/">
             <div class="quadrado"></div>
         </a>`;
-    for (i = 1; i <= 9; i++) {
-        quadrado;
+
+    var geral = [quadrado, quadrado, quadrado, quadrado, quadrado, quadrado, quadrado, quadrado, quadrado];
+
+    for(i=1; i<=9; i++){
+        data = data.replace(`{{QUADRADO${i}}}`, geral[i-1]);
     }
-    data = data.replace(/{{QUADRADO1}}/, quadrado);
-    data = data.replace(/{{QUADRADO2}}/, quadrado);
-    data = data.replace(/{{QUADRADO3}}/, quadrado);
-    data = data.replace(/{{QUADRADO4}}/, quadrado);
-    data = data.replace(/{{QUADRADO5}}/, quadrado);
-    data = data.replace(/{{QUADRADO6}}/, quadrado);
-    data = data.replace(/{{QUADRADO7}}/, quadrado);
-    data = data.replace(/{{QUADRADO8}}/, quadrado);
-    data = data.replace(/{{QUADRADO9}}/, quadrado);
     res.send(data);
   });
 });
