@@ -26,9 +26,11 @@ app.get('/', function(req, res) {
             if(i == divClicada){
                 if(cont%2!=0){
                     arrayElementos[i] = 'x';
+                    jogador = "X";
                     cont++;
                 }else{
                     arrayElementos[i] = 'o';
+                    jogador = "O";
                     cont++;
                 }
             }
@@ -62,9 +64,11 @@ app.get('/', function(req, res) {
 
         if(finish == true){
             arrayElementos = ['0','1','2','3','4','5','6','7','8'];
-            data = data.replace(`{{RESULTADO}}`, `<a href="/">Reiniciar jogo</a>`);
+            cont = 1;
+            data = data.replace(`{{RESULTADO}}`, `<div class="msgsFinais"><p >Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
             finish = false;
         }else{
+            // data = data.replace(`{{RESULTADO}}`, `<div class="msgsFinais"><p >Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
             data = data.replace(`{{RESULTADO}}`, '');
         }
         res.send(data);
