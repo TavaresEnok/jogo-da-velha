@@ -9,6 +9,8 @@ finish = false;
 
 cont = 1;
 
+contadorVelha = 0;
+
 app.get('/', function(req, res) {
     var divClicada = req.query['div'];
     
@@ -48,6 +50,11 @@ app.get('/', function(req, res) {
                 geral[i] = geral[i].replace('{{ELEMENTO}}', '');
             }
 
+            //Verificando se deu velha
+            if(arrayElementos[i] == 'x' || arrayElementos[i] == 'o' ){
+                contadorVelha++;
+            }
+
             data = data.replace(`{{QUADRADO${i}}}`, geral[i]);
         }
         
@@ -68,17 +75,24 @@ app.get('/', function(req, res) {
             finish = true;
         }else if(arrayElementos[0] == arrayElementos[4] && arrayElementos[4] == arrayElementos[8]){
             finish = true;
-        } 
+        }
 
         if(finish == true){
             arrayElementos = ['0','1','2','3','4','5','6','7','8'];
             cont = 1;
             data = data.replace(`{{RESULTADO}}`, `<div class="mensagens"><p>Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
             finish = false;
+        }else if(contadorVelha == 9){
+            contadorVelha = 0;
+            arrayElementos = ['0','1','2','3','4','5','6','7','8'];
+            cont = 1;
+            data = data.replace(`{{RESULTADO}}`, `<div class="mensagens"><p>Deu velha :(</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
+            finish = false;
         }else{
             // data = data.replace(`{{RESULTADO}}`, `<div class="mensagens"><p >Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
             data = data.replace(`{{RESULTADO}}`, '');
         }
+        contadorVelha = 0;
         res.send(data);
     });
 });
