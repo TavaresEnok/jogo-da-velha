@@ -43,28 +43,20 @@ app.get('/', function(req, res) {
         
         //Condições de vitória
         if(arrayElementos[1] != '' && arrayElementos[0] == arrayElementos[1] && arrayElementos[1] == arrayElementos[2]){
-            console.log('Venceu 012');
             finish = true;
         }else if(arrayElementos[4] != '' && arrayElementos[3] == arrayElementos[4] && arrayElementos[4] == arrayElementos[5]){
-            console.log('Venceu 345');
             finish = true;
         }else if(arrayElementos[7] != '' && arrayElementos[6] == arrayElementos[7] && arrayElementos[7] == arrayElementos[8]){
-            console.log('Venceu 678');
             finish = true;
         }else if(arrayElementos[3] != '' && arrayElementos[0] == arrayElementos[3] && arrayElementos[3] == arrayElementos[6]){
-            console.log('Venceu 036');
             finish = true;
         }else if(arrayElementos[4] != '' && arrayElementos[1] == arrayElementos[4] && arrayElementos[4] == arrayElementos[7]){
-            console.log('Venceu 147');
             finish = true;
         }else if(arrayElementos[5] != '' && arrayElementos[2] == arrayElementos[5] && arrayElementos[5] == arrayElementos[8]){
-            console.log('Venceu 258');
             finish = true;
         }else if(arrayElementos[4] != '' && arrayElementos[2] == arrayElementos[4] && arrayElementos[4] == arrayElementos[6]){
-            console.log('Venceu 246');
             finish = true;
         }else if(arrayElementos[4] != '' && arrayElementos[0] == arrayElementos[4] && arrayElementos[4] == arrayElementos[8]){
-            console.log('Venceu 048');
             finish = true;
         }
 
