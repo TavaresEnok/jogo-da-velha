@@ -24,51 +24,59 @@ app.get('/', function(req, res) {
 
         for(i=0; i<9; i++){
             if(i == divClicada){
-                if(cont%2!=0){
-                    arrayElementos[i] = 'x';
-                    jogador = "X";
-                    cont++;
+                if(arrayElementos[i] != 'x' && arrayElementos[i] != 'o'){
+                    if(cont%2!=0){
+                        arrayElementos[i] = 'x';
+                        jogador = "X";
+                        cont++;
+                    }else{
+                        arrayElementos[i] = 'o';
+                        jogador = "O";
+                        cont++;
+                    }
                 }else{
-                    arrayElementos[i] = 'o';
-                    jogador = "O";
-                    cont++;
+                    data = data.replace(`{{RESULTADO}}`, `<p class="mensagens">Espaço marcado, escolha outro</p>`);
                 }
+                
             }
+
             geral[i] = geral[i].replace('{{INDICE}}', i);
             if(arrayElementos[i] == 'x' || arrayElementos[i] == 'o'){
                 geral[i] = geral[i].replace('{{ELEMENTO}}', arrayElementos[i]);
+                
             }else{
                 geral[i] = geral[i].replace('{{ELEMENTO}}', '');
             }
+
             data = data.replace(`{{QUADRADO${i}}}`, geral[i]);
         }
         
         //Condições de vitória
-        if(arrayElementos[1] != '' && arrayElementos[0] == arrayElementos[1] && arrayElementos[1] == arrayElementos[2]){
+        if(arrayElementos[0] == arrayElementos[1] && arrayElementos[1] == arrayElementos[2]){
             finish = true;
-        }else if(arrayElementos[4] != '' && arrayElementos[3] == arrayElementos[4] && arrayElementos[4] == arrayElementos[5]){
+        }else if(arrayElementos[3] == arrayElementos[4] && arrayElementos[4] == arrayElementos[5]){
             finish = true;
-        }else if(arrayElementos[7] != '' && arrayElementos[6] == arrayElementos[7] && arrayElementos[7] == arrayElementos[8]){
+        }else if(arrayElementos[6] == arrayElementos[7] && arrayElementos[7] == arrayElementos[8]){
             finish = true;
-        }else if(arrayElementos[3] != '' && arrayElementos[0] == arrayElementos[3] && arrayElementos[3] == arrayElementos[6]){
+        }else if(arrayElementos[0] == arrayElementos[3] && arrayElementos[3] == arrayElementos[6]){
             finish = true;
-        }else if(arrayElementos[4] != '' && arrayElementos[1] == arrayElementos[4] && arrayElementos[4] == arrayElementos[7]){
+        }else if(arrayElementos[1] == arrayElementos[4] && arrayElementos[4] == arrayElementos[7]){
             finish = true;
-        }else if(arrayElementos[5] != '' && arrayElementos[2] == arrayElementos[5] && arrayElementos[5] == arrayElementos[8]){
+        }else if(arrayElementos[2] == arrayElementos[5] && arrayElementos[5] == arrayElementos[8]){
             finish = true;
-        }else if(arrayElementos[4] != '' && arrayElementos[2] == arrayElementos[4] && arrayElementos[4] == arrayElementos[6]){
+        }else if(arrayElementos[2] == arrayElementos[4] && arrayElementos[4] == arrayElementos[6]){
             finish = true;
-        }else if(arrayElementos[4] != '' && arrayElementos[0] == arrayElementos[4] && arrayElementos[4] == arrayElementos[8]){
+        }else if(arrayElementos[0] == arrayElementos[4] && arrayElementos[4] == arrayElementos[8]){
             finish = true;
-        }
+        } 
 
         if(finish == true){
             arrayElementos = ['0','1','2','3','4','5','6','7','8'];
             cont = 1;
-            data = data.replace(`{{RESULTADO}}`, `<div class="msgsFinais"><p >Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
+            data = data.replace(`{{RESULTADO}}`, `<div class="mensagens"><p>Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
             finish = false;
         }else{
-            // data = data.replace(`{{RESULTADO}}`, `<div class="msgsFinais"><p >Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
+            // data = data.replace(`{{RESULTADO}}`, `<div class="mensagens"><p >Jogador ${jogador} venceu!</p><a href="/" class="btn-reiniciar">Reiniciar jogo</a><div>`);
             data = data.replace(`{{RESULTADO}}`, '');
         }
         res.send(data);
