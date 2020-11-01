@@ -1,0 +1,24 @@
+{
+  "name": "jogo-da-velha",
+  "version": "1.0.0",
+  "description": "Game criado em HTML, CSS e Node.js do famoso jogo da velha.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenissonSilva/jogo-da-velha.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenissonSilva/jogo-da-velha/issues"
+  },
+  "homepage": "https://github.com/RenissonSilva/jogo-da-velha#readme"
+}

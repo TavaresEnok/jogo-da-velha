@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,75 +7,204 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
         * {
-            padding: 0;
-            margin: 0;
-            border: 0;
-            box-sizing: border-box;
-            font-family: 'Permanent Marker', cursive;
-            text-align:center;
-        }
-        body{
-            background: linear-gradient(45deg, #5fe3d6, #e8e8e8, #3797a4, #e3fffc);
-             background-size: 150% 300%;
-        }
-        #jogo{
-            max-width:600px;
-            height:600px;
-            margin: 0 auto;
-            background-color:black;
-            display: flex;
-            flex-wrap: wrap;
-            
-        }
-        .quadrado{
-            width:200px;
-            height:200px;
-            color:#486361;
-            background-color:#e3fffc;
-            border:5px inset #b0fff7;
-            font-size:130px;
-        }
-        .mensagens{
-            width:100%;
-            color:#486361;
-            font-size:30px;
-        }
-        h1{
-            margin:20px;
-            font-size:50px;
-            text-shadow: 1px 1px 1px white;
-            color:#486361;
-        }
-        a{
-            text-decoration: none;
-        }
-        .btn-reiniciar{
-            background-color:#486361;
-            color:white;
-            padding:10px;
-            border-radius:10px;
-        }
-        .btn-reiniciar:hover{
-            background-color:#5c807d;
-        }
-        p{
-            margin:20px;
-        }
+       	padding: 0;
+       	margin: 0;
+       	border: 0;
+       	box-sizing: border-box;
+       	font-family: 'Permanent Marker', cursive;
+       	text-align: center;
+       }
+       .col-sm-8 {
+       	position: relative;
+       	width: 100%;
+       	padding-right: 15px;
+       	padding-left: 15px;
+       }
+       @media (min-width: 576px) {
+       	.col-sm-8 {
+       		-ms-flex: 0 0 66.666667%;
+       		flex: 0 0 66.666667%;
+       		max-width: 66.666667%;
+       	}
+       }
+       .col-sm-3 {
+       	position: relative;
+       	width: 100%;
+       	padding-right: 15px;
+       	padding-left: 15px;
+       	margin-top: 10px;
+       }
+       @media (min-width: 600px) {
+       	.col-sm-3 {
+       		-ms-flex: 0 0 25%;
+       		flex: 1 0 25%;
+       		max-width: 30%;
+       	}
+       }
+       body {
+       	background: linear-gradient(45deg, #5fe3d6, #12524c, #3797a4, #e3fffc);
+       	background-size: 150% 300%;
+       }
+       #jogo {
+       	max-width: 546px;
+       	/* height:545px;*/
+       	margin: 0 auto;
+       	background-color: rgb(121 178 183);
+       	display: flex;
+       	flex-wrap: wrap;
+       	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
+       }
+       .quadrado {
+       	width: 182px;
+       	height: 181px;
+       	color: #486361;
+       	background-color: #79b2b7;
+       	border: dotted 1px #3695a1;
+       	font-size: 130px;
+       }
+       .quadrado:hover {
+       	background-color: #c7fff9;
+       }
+       .mensagens {
+       	width: 100%;
+       	color: #486361;
+       	font-size: 30px;
+       	margin-bottom: 41px;
+       }
+       h1 {
+       	margin: 20px;
+       	font-size: 50px;
+       	text-shadow: 1px 1px 1px white;
+       	color: #486361;
+       }
+       a {
+       	text-decoration: none;
+       }
+       .btn-reiniciar {
+       	background-color: #76aba6;
+       	color: white;
+       	padding: 10px;
+       	border-radius: 10px;
+       	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
+       }
+       .btn-reiniciar:hover {
+       	background-color: #5c807d;
+       }
+       p {
+       	margin: 20px;
+       }
+       .nav-wrapper {
+       	margin-top: -20px;
+       	background: #76aba6;
+       	color: #fff;
+       	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       	position: relative;
+       	height: 100%;
+       }
+       @media screen and (max-width: 600px) {
+       	.quadrado {
+       		width: 123px;
+       		height: 126px;
+       		margin-bottom: 0px;
+       		color: #486361;
+       		background-color: #79b2b7;
+       		border: dotted 1px #3695a1;
+       		font-size: 78px;
+       	}
+       	#jogo {
+       		max-width: 545px;
+       		/*height: 545px;*/
+       		margin: 0 auto;
+       		background-color: rgb(121 178 183);
+       		display: flex;
+       		flex-wrap: wrap;
+       		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
+       	}
+       }
+       @media screen and (min-width: 1200px) {
+       	.container,
+       	.container-lg,
+       	.container-md,
+       	.container-sm,
+       	.container-xl {
+       		max-width: 1140px;
+       	}
+       }
+       #mensagem {
+       	max-width: 600px;
+       	height: 207px;
+       	margin-top: 176px;
+       	border-radius: 0px;
+       	background-color: rgb(121 178 183);
+       	display: flex;
+       	flex-wrap: wrap;
+       	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
+       }
+       @media screen and (max-width: 600px) {
+       	.container,
+       	.container-sm {
+       		max-width: 540px;
+       	}
+       	.alinhamento-jogo {
+       		margin-right: 0px !important;
+       	}
+       	#mensagem {
+       		border-radius: 0px;
+       		max-width: 600px;
+       		height: 208px;
+       		margin: 0 auto;
+       		background-color: rgb(121 178 183);
+       		display: flex;
+       		flex-wrap: wrap;
+       		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.32), 0 3px 12px 0 rgba(0, 0, 0, 0.24);
+       	}
+       }
+       .container{
+       	width: 100%;
+       	padding-right: 15px;
+       	padding-left: 15px;
+       	margin-right: auto;
+       	margin-left: auto;
+       }
+       .row {
+       	display: -ms-flexbox;
+       	display: flex;
+       	-ms-flex-wrap: wrap;
+       	flex-wrap: wrap;
+       	margin-right: -15px;
+       	margin-left: -15px;
+       }
+       .alinhamento-jogo {
+       	margin-right: 400px;
+       }
     </style>
 </head>
 <body>
-    <h1> Jogo da Velha </h1>
-    <div id="jogo">
-        {{QUADRADO0}}
-        {{QUADRADO1}}
-        {{QUADRADO2}}
-        {{QUADRADO3}}
-        {{QUADRADO4}}
-        {{QUADRADO5}}
-        {{QUADRADO6}}
-        {{QUADRADO7}}
-        {{QUADRADO8}}
-        {{MENSAGEM}}
+    <div class="nav-wrapper">
+        <a href="#"> <h1 class="alinhamento-jogo">Jogo da Velha</h1> </a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-8">
+                <div id="jogo">
+                    {{QUADRADO0}}
+                     {{QUADRADO1}}
+                      {{QUADRADO2}}
+                       {{QUADRADO3}}
+                        {{QUADRADO4}}
+                         {{QUADRADO5}}
+                          {{QUADRADO6}}
+                           {{QUADRADO7}}
+                            {{QUADRADO8}}
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div id="mensagem">
+                    {{MENSAGEM}}
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
